@@ -22,4 +22,35 @@ describe("getGreeting", () => {
     const expected = `Hello world! From ${longName}`;
     expect(getGreeting(longName)).toBe(expected);
   });
+
+  it("handles empty string as name", () => {
+    expect(getGreeting("")).toBe("Hello world! From ");
+  });
+
+  it("handles whitespace-only names", () => {
+    expect(getGreeting("   ")).toBe("Hello world! From    ");
+  });
+
+  it("handles boolean values as name", () => {
+    expect(getGreeting(true)).toBe("Hello world! From true");
+    expect(getGreeting(false)).toBe("Hello world! From false");
+  });
+
+  it("handles null as name", () => {
+    expect(getGreeting(null)).toBe("Hello world!");
+  });
+
+  it("handles undefined as name", () => {
+    expect(getGreeting(undefined)).toBe("Hello world!");
+  });
+
+  it("handles object as name", () => {
+    const obj = { name: "Alice" };
+    expect(getGreeting(obj)).toBe("Hello world! From [object Object]");
+  });
+
+  it("handles array as name", () => {
+    const arr = ["Alice", "Bob"];
+    expect(getGreeting(arr)).toBe("Hello world! From Alice,Bob");
+  });
 });
