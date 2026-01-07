@@ -42,4 +42,8 @@ jobs:
         run: npm test
       - name: Generate Allure report
         run: npx allure-commandline generate allure-results --clean -o allure-report
+      - name: Publish Allure report
+        uses: simple-elf/allure-report-action@v1.8
+        with:
+          allure_results: allure-results
 
