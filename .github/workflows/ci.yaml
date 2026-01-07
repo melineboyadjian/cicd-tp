@@ -18,6 +18,8 @@ jobs:
         run: npm ci
       - name: Execute test 
         run: npm test
+      - name: Allure 
+        run: allure run -- npm test
   lint:
     runs-on: ubuntu-latest
     steps:
