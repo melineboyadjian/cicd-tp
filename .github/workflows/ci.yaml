@@ -18,8 +18,6 @@ jobs:
         run: npm ci
       - name: Execute test 
         run: npm test
-      - name: Allure 
-        run: allure run -- npm test
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -31,3 +29,16 @@ jobs:
         run: npm ci
       - name: lint code
         run: npm run lint
+  allure: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+      - name: Install dependencies
+        run: npm ci
+      - name : Install allure
+        run: npm install allure
+      - name: Allure 
+        run: allure run -- npm test
