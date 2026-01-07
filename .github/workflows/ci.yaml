@@ -44,7 +44,7 @@ jobs:
       - name: Install Allure 
         run: npm install -g allure
       - name: Execute test 
-        run: npx allure run -- npm test
+        run: allure run -- npm test
       - name: Run Allure Action
         uses: allure-framework/allure-action@v0
         with:
