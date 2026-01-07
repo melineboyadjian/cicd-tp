@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - allure
   pull_request:
     branches:
       - master
