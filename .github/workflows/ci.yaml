@@ -38,7 +38,6 @@ jobs:
           node-version-file: ".nvmrc"
       - name: Install dependencies
         run: npm ci
-      - name : Install allure
-        run: npm install allure
       - name: Allure 
-        run: allure run -- npm test
+        run: npx allure-commandline run -- npm test
+
