@@ -38,6 +38,13 @@ jobs:
           node-version-file: ".nvmrc"
       - name: Install dependencies
         run: npm ci
+      - name: Install Allure 
+        run: npm install -g allure
       - name: Execute test 
-        run: npx allure run -- npm test
+        run: allure run -- npm test
+      - name: Run Allure Action
+        uses: allure-framework/allure-action@v0
+        with:
+          report-directory: "./allure-report" 
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
