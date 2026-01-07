@@ -24,7 +24,7 @@ describe("getGreeting", () => {
   });
 
   it("handles empty string as name", () => {
-    expect(getGreeting("")).toBe("Hello world! From ");
+    expect(getGreeting("")).toBe("Hello world!");
   });
 
   it("handles whitespace-only names", () => {
@@ -33,7 +33,8 @@ describe("getGreeting", () => {
 
   it("handles boolean values as name", () => {
     expect(getGreeting(true)).toBe("Hello world! From true");
-    expect(getGreeting(false)).toBe("Hello world! From false");
+    expect(getGreeting("false")).toBe("Hello world! From false");
+    expect(getGreeting(false)).toBe("Hello world!"); // test si il est truthy / falsy ici falsy, pour être truthy il faut "false"
   });
 
   it("handles null as name", () => {
