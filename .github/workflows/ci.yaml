@@ -41,7 +41,7 @@ jobs:
       - name: Install Allure 
         run: npm install -g allure
       - name: Execute test 
-        run: allure run -- npm test
+        run: npx allure run -- npm test
       - name: Generate Allure report
         run: allure generate allure-report
       - name: ls Allure
